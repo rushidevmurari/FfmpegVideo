@@ -42,7 +42,7 @@ public class ProgressBarActivity extends AppCompatActivity {
             myIntent.putExtra("duration",String.valueOf(duration));
             myIntent.putExtra("command",command);
             myIntent.putExtra("destination",path);
-            startActivity(myIntent);
+            startService(myIntent);
             mConnection = new ServiceConnection() {
                 @Override
                 public void onServiceConnected(ComponentName name, IBinder service) {
