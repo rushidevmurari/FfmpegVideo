@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FfmpegVideo</string>
+    <string name="command_run_ffmpeg_button_text">Pick_Video</string>
+</resources>
