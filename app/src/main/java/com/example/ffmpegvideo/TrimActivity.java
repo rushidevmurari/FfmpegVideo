@@ -15,6 +15,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -76,14 +77,14 @@ public class TrimActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(isPlaying)
                 {
-                    imageView.setImageResource(R.drawable.ic_play);
+                    imageView.setImageResource(R.drawable.ic_pause);
                     videoView.pause();
                     isPlaying = false;
                 }
                 else
                 {
+                    imageView.setImageResource(R.drawable.ic_play);
                     videoView.start();
-                    imageView.setImageResource(R.drawable.ic_pause);
                     isPlaying = true;
                 }
             }
@@ -213,7 +214,7 @@ public class TrimActivity extends AppCompatActivity {
 
         duration = (endms - startMs)/1000;
 
-        command = new String[]{"-ss",""+startMs/1000 , "-y","-i",originaal_path,"-t", ""+(endms-startMs)/1000, "-vcodec","mpeg4","-b:v","2097152","-b;a","48000","-ac","2","-ar","22050",dest.getAbsolutePath()};
+        command = new String[]{"-ss",""+startMs/1000 , "-y","-i", originaal_path,"-t", ""+(endms-startMs)/1000, "-vcodec","mpeg4","-b:v","2097152","-b:a","48000","-ac","2","-ar","22050",dest.getAbsolutePath()};
     }
 
     private String getRealPathFromUri(Context context, Uri uri)
